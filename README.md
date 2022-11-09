@@ -52,8 +52,8 @@ services:
     myproject:
         container_name: myproject
         image: your-image-name
-            volumes:
-                - ./:/var/www/html/site
-            ports:
-                - "80:80"
+        volumes:
+            - ./:/var/www/html/site
+        ports:
+            - "80:80"
 ```
