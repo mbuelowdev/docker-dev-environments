@@ -35,9 +35,9 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN rm /etc/nginx/sites-available/default
 
 COPY ./config/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY ./config/nginx/phpsite.conf /etc/nginx/sites-available/phpsite.conf
-RUN ln -s /etc/nginx/sites-available/phpsite.conf /etc/nginx/sites-enabled/phpsite \
-&& chmod 0744 /etc/nginx/sites-available/phpsite.conf
+COPY ./config/nginx/site.conf /etc/nginx/sites-available/site.conf
+RUN ln -s /etc/nginx/sites-available/site.conf /etc/nginx/sites-enabled/site \
+&& chmod 0744 /etc/nginx/sites-available/site.conf
 
 # PHP-FPM konfigurieren
 COPY ./config/php-fpm/php.ini /usr/local/etc/php/php.ini
@@ -47,7 +47,7 @@ COPY ./config/php-fpm/www.conf /usr/local/etc/php-fpm.d/www.conf
 #COPY ./config/imagick/policymap.xml /etc/ImageMagick-6/policy.xml
 
 # Webserver Root anlegen
-RUN mkdir -p /var/www/html/phpsite
+RUN mkdir -p /var/www/html/site
 
 # Leeren Ordner zum Anlegen von Projekten anlegen
 RUN mkdir -p /creator

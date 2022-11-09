@@ -1,9 +1,10 @@
-# Docker Development Images
+# Docker Development Environments
 
 ### Available images
 
 * nginx-fpm-php7.3-composer2.4.3
 * nginx-fpm-php8.1-composer2.4.3
+* nginx-node19-vue-latest
 
 ### Customizing the image
 
@@ -49,12 +50,10 @@ version: '3'
 
 services:
     myproject:
-    container_name: myproject
-    image: your-image-name
-        volumes:
-            - ./:/var/www/html/phpsite
-        ports:
-            - "80:80"
-        expose:
-            - "80"
+        container_name: myproject
+        image: your-image-name
+            volumes:
+                - ./:/var/www/html/site
+            ports:
+                - "80:80"
 ```
